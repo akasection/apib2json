@@ -1,32 +1,36 @@
-# apib2json
+# apib2json-esm
+
 [![Release][img-release]][link-release]
 [![License][img-license]][link-license]
-[![Build][img-build]][link-build]
-[![Code Coverage][img-coverage]][link-coverage]
-[![docker pulls][img-docker-pulls]][link-registry]
 
-A command-line utility for get JSON Schema(s) from API Blueprint.
+A command-line utility for get JSON Schema(s) from API Blueprint. Now in ESM environment
 
 ## Introduction
 
+**Attention!**
+
+This one is a slight remake from original `apib2json` (<https://github.com/slimapi/apib2json>) which intentionally replacing the protagonist with `drafter.js` to make it much portable in multiple systems (as drafter.js is pure JS without native bindings). While we at it, I also rework the package into ESM environment and use `tsx` and `pkgroll` as well to bundle and run.
+
+**Original Readme:**
+
 If you are building your API with [Apiary][link-apiary] you should know [API Blueprint][link-apib], right? Good documentation is cool but it would be nice to re-use your validation which you already wrote in [MSON][link-mson] (or [JSON Schema][link-json-schema]). So here is the task: **Get JSON Schema(s) from API Blueprint**. Good news for you: This tool does it!
-  
+
 It is built on top of [apiaryio/protagonist][link-protagonist] which does the hard job, but if you know this Node.js C++ binding you sure know that compilation of this library (`npm install protagonist`) is very slow. This is the reason why this tool is also wrapped with [Docker][link-docker], but sure you can also use it with [`npm`][link-npm].
 
 ## Installation
 
 ```bash
-$ npm install --global apib2json
+npm install --global @akasection/apib2json-esm
 ```
 
-> **NOTE**: The dockerized version is recommended, just try `$ docker run --rm slimapi/apib2json --help`
+~~> **NOTE**: The dockerized version is recommended, just try `$ docker run --rm slimapi/apib2json --help`~~
 
 ## Usage
 
-**$ apib2json --help**
+**$ apib2json-esm, --help**
 
 ```bash
-Usage: apib2json [options]
+Usage: apib2json-esm [options]
 
 A command-line utility for get JSON Schema(s) from API Blueprint
 
@@ -42,13 +46,10 @@ Options:
 
 ## Example
 
-> **NOTE**: The example below requires `docker` installed (npm's version without prefix `docker run --rm -i slimapi/`)
-
-```bash
-$ docker run --rm -i slimapi/apib2json --pretty < input.apib > output.json
-``` 
+~~> **NOTE**: The example below requires `docker` installed (npm's version without prefix `docker run --rm -i slimapi/`)~~
 
 **$ cat input.apib**
+
 ```
 # Awesome API
 
@@ -73,6 +74,7 @@ Retrieves the coupon with the given ID.
 ```
 
 **$ cat output.json**
+
 ```json
 {
   "[GET]/coupons/{id}": [
@@ -119,46 +121,27 @@ Please use the [issue tracker][link-issue] to report any bugs or file feature re
 
 #### Developing
 
-Pull Requests are welcome! To begin developing, you just need `docker` installed and do this:
+Simply clone and start coding. You can test your changes by running:
 
 ```bash
-$ git clone git@github.com:slimapi/apib2json.git && cd apib2json/
-$ docker compose up
-```
-
-#### Getting Into a Docker Container’s Shell
-```bash
-$ docker exec -it apib2json sh
-```
-
-#### Please run Lint & Test (inside of Docker Container)
-```bash
-$ npm run ci
+pnpm tsx src/index.ts
 ```
 
 ## License
-MIT @ [Petr Bugyík][link-twitter]
+
+Originally licensed MIT @ [Petr Bugyík][link-twitter]
 
 [link-apiary]: https://apiary.io
 [link-apib]: https://github.com/apiaryio/api-blueprint
-[link-build]: https://github.com/slimapi/apib2json/actions
-[link-coverage]: https://codecov.io/gh/slimapi/apib2json
 [link-docker]: https://www.docker.com/what-docker
-[link-issue]: https://github.com/slimapi/apib2json/issues
+[link-issue]: https://github.com/akasection/apib2json-esm/issues
 [link-json-schema]: http://json-schema.org
 [link-license]: LICENSE.md
-[link-microbadger]: https://microbadger.com/images/slimapi/apib2json
 [link-mson]: https://github.com/apiaryio/mson
 [link-npm]: https://www.npmjs.com/package/apib2json
 [link-protagonist]: https://github.com/apiaryio/protagonist
-[link-registry]: https://hub.docker.com/r/slimapi/apib2json
-[link-release]: https://github.com/slimapi/apib2json/releases
+[link-release]: https://github.com/akasection/apib2json/releases
 [link-twitter]: https://twitter.com/bugyik
 
-[img-build-status]: https://img.shields.io/travis/slimapi/apib2json/master.svg
-[img-build]: https://img.shields.io/github/actions/workflow/status/slimapi/apib2json/.github/workflows/ci.yml?branch=master&style=flat-square&label=Build
-[img-coverage]: https://img.shields.io/codecov/c/github/slimapi/apib2json/master?style=flat-square&label=Coverage
-[img-docker-pulls]: https://img.shields.io/docker/pulls/slimapi/apib2json.svg?style=flat-square&label=Docker%20Pulls
-[img-license]: https://img.shields.io/github/license/slimapi/apib2json?style=flat-square&label=License&color=blue
-[img-release]: https://img.shields.io/github/v/tag/slimapi/apib2json.svg?label=Release&style=flat-square
-[img-version]: https://images.microbadger.com/badges/version/slimapi/apib2json.svg
+[img-license]: https://img.shields.io/github/license/akasection/apib2json-esm?style=flat-square&label=License&color=blue
+[img-release]: https://img.shields.io/github/v/tag/akasection/apib2json-esm.svg?label=Release&style=flat-square

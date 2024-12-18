@@ -1,10 +1,13 @@
 {
-  "name": "apib2json",
+  "name": "apib2json-esm",
   "version": "1.0.0",
   "type": "module",
-  "description": "A command-line utility for get JSON Schema(s) from API Blueprint",
+  "description": "A CLI for get JSON Schema(s) from API Blueprint. Now works in ESM environment",
   "license": "MIT",
   "author": "Petr Bugyík",
+  "maintainers": [
+    "akasection"
+  ],
   "bin": "./dist/cli.js",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
