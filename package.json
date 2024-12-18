@@ -1,5 +1,5 @@
 {
-  "name": "apib2json-esm",
+  "name": "@akasection/apib2json-esm",
   "version": "1.0.0",
   "type": "module",
   "description": "A CLI for get JSON Schema(s) from API Blueprint. Now works in ESM environment",
