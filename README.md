@@ -20,16 +20,16 @@ It is built on top of [apiaryio/protagonist][link-protagonist] which does the ha
 ## Installation
 
 ```bash
-npm install --global @akasection/apib2json-esm
+npm install @akasection/apib2json-esm
 ```
 
 ~~> **NOTE**: The dockerized version is recommended, just try `$ docker run --rm slimapi/apib2json --help`~~
 
 ## Usage
 
-**$ apib2json-esm, --help**
-
 ```bash
+$ pnpm apib2json-esm
+
 Usage: apib2json-esm [options]
 
 A command-line utility for get JSON Schema(s) from API Blueprint
