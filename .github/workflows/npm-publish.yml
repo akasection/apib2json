@@ -19,6 +19,7 @@ jobs:
 
   publish-npm:
     needs: build
+    environment: publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
